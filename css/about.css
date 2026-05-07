@@ -1,0 +1,54 @@
+@import url('./public/basecss.css');
+@import url('./public/nav.css');
+@import url('./public/footer.css');
+
+:root {
+  --base-container-width: 100%;
+}
+
+body {
+  background-color: #fff;
+}
+
+
+
+
+main {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+
+  .container {
+    width: 70%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 150px;
+    margin-bottom: 50px;
+
+    h1 {
+      /* width: 100%;
+      text-align: left; */
+      font-size: 25px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 20px;
+      color: rgb(69, 42, 7);
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 400;
+      color: #000;
+      line-height: 30px;
+      color: rgb(69, 42, 7);
+      line-height: 35px;
+    }
+  }
+}

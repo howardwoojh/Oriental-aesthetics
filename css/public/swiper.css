@@ -1,0 +1,102 @@
+body{
+  --nextandprev-color: #910000; /*左右切换按钮颜色 */
+  --dot-color:#910000; /* 圆点颜色 */
+  --nextandprev-size:35px; /* 左右切换按钮大小 */
+  --dot-size:8px; /*圆点大小*/
+}
+
+.slider-wrapper {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.slider-wrapper li {
+  list-style: none;
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.slider li {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.slider li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all .5s;
+}
+
+/*按钮*/
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--nextandprev-size);
+  height: var(--nextandprev-size);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--nextandprev-color);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  font-size: 20px;
+  border: 1px solid var(--nextandprev-color);
+  opacity: 0;
+  transition: all .3s;
+}
+
+.prev {
+  left: 30px;
+}
+
+.next {
+  right: 30px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: var(--nextandprev-color);
+  color: #fff;
+}
+
+.slider-footer {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+
+.slider-footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.slider-footer li {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: none;
+  border: 2px solid var(--dot-color);
+  transition: all .3s;
+  margin: 0 5px;
+}
+
+.slider-footer .slider-nav .dot-active {
+  background-color: var(--dot-color);
+}
+
+.slider-footer li:hover {
+  background-color: var(--dot-color);
+}

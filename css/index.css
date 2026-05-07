@@ -1,0 +1,409 @@
+@import url('./public/basecss.css');
+@import url('./public/nav.css');
+@import url('./public/swiper.css');
+@import url('./public/footer.css');
+
+:root {
+  --base-container-width: 100%;
+}
+
+main {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  /*轮播图*/
+  .banner {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    /* border-radius: 10px; */
+
+    &:hover .prev,
+    &:hover .next {
+      opacity: 1;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+    }
+  }
+
+  /*介绍*/
+  .intro-container {
+    width: 80%;
+    height: 400px;
+    margin-bottom: 100px;
+
+    .title {
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      color: #484848;
+
+      h3 {
+        max-width: 180px;
+        border-bottom: 1px solid #484848;
+        line-height: 30px;
+        font-size: 14px;
+        font-weight: normal;
+
+        span {
+          color: #910000;
+          font-size: 20px;
+        }
+      }
+    }
+
+    .item-container {
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .item {
+        width: 50px;
+        height: 100%;
+        margin-right: 5px;
+        display: flex;
+        justify-self: start;
+        align-items: center;
+        transition: all 0.7s ease-in-out;
+
+        &:first-child {
+          width: 100%;
+
+          .content {
+            display: block;
+          }
+        }
+
+        .title {
+          width: 50px;
+          height: 100%;
+          writing-mode: vertical-lr;
+          color: #fff;
+          line-height: 50px;
+          font-size: 15px;
+          display: flex;
+          text-indent: 2em;
+          cursor: pointer;
+          font-size: 16px;
+          letter-spacing: 0.3em;
+          overflow: hidden;
+          z-index: 9;
+
+          span {
+            font-size: 20px;
+          }
+        }
+
+        .content {
+          width: 100%;
+          height: 100%;
+          background: #fff;
+          color: #484848;
+          font-size: 18px;
+          line-height: 30px;
+          padding: 0 20px;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: all 0.7s ease-in-out;
+          display: none;
+
+          img {
+            width: 40px;
+            height: auto;
+          }
+
+          img:nth-child(1) {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+          }
+
+          img:nth-child(2) {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            transform: rotate(180deg);
+          }
+
+          img:nth-child(3) {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            transform: rotate(90deg);
+          }
+
+          img:nth-child(4) {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            transform: rotate(-90deg);
+          }
+
+          .content-deatil {
+            width: 80%;
+            height: 300px;
+            overflow: hidden;
+            border-top: 1px solid #715125;
+            border-bottom: 1px solid #715125;
+            padding: 28px 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.7s ease-in-out;
+          }
+        }
+
+
+      }
+    }
+  }
+
+  /*作品*/
+  .paining-container,
+  .schools-container {
+    width: 80%;
+    height: auto;
+    margin-top: 50px;
+
+    .title {
+      width: 100%;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      color: #484848;
+
+      h3 {
+        max-width: 180px;
+        border-bottom: 1px solid #484848;
+        line-height: 30px;
+        font-size: 14px;
+        font-weight: normal;
+
+        span {
+          color: #910000;
+          font-size: 20px;
+        }
+      }
+    }
+
+    .item-list {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .item {
+        width: 23%;
+        height: auto;
+        overflow: hidden;
+        position: relative;
+
+        img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          border-radius: 5px;
+          transition: all 0.5s ease-in-out;
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          img {
+            transform: scale(1.1);
+            transition: all 0.5s ease-in-out;
+          }
+        }
+
+        .content-box {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .detail {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            padding: 0 20px;
+            display: flex;
+            background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+            color: white;
+            justify-content: start;
+            align-items: center;
+            gap: 30px;
+            transition: height 0.5s;
+            border-radius: 0 0 5px 5px;
+
+            h2 {
+              font-size: 16px;
+              font-weight: normal;
+              transform: translateX(10px);
+              transition: transform 0.5s;
+            }
+
+            p {
+              font-size: 12px;
+              transform: translateY(0);
+              transition: transform 0.5s;
+            }
+          }
+
+          &:hover {
+            .detail {
+              height: 60px;
+
+              h2 {
+                transform: translateY(-8px);
+              }
+
+              p {
+                transform: translateY(-8px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .article-container {
+    width: 100%;
+    height: auto;
+    /* background: #e6d5b7; */
+    margin-top: 50px;
+    position: relative;
+
+    .mask-bg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url(../images/index/月令图卷.明.吴彬绘.绢本设色.65500x2105像素.台北故宫博物院藏.jpg);
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .article-box {
+      width: 80%;
+      height: auto;
+      margin: 0 auto;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+
+      .item {
+        position: relative;
+        width: calc(100% / 7);
+        height: 400px;
+        border-radius: 10px;
+        transform: scale(1);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:first-child {
+          .mask{
+            p{
+              width: auto;
+            }
+          }
+        }
+
+        &:hover {
+          transform: scale(1.05);
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+
+        .mask {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.3);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          /* color: #f2f0f0; */
+          color: rgba(255, 255, 255, 0.8);
+          border-radius: 10px;
+
+          img {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            margin-bottom: 30px;
+          }
+
+          h1 {
+            font-size: 18px;
+            margin-bottom: 10px;
+          }
+
+          p {
+            width: 80%;
+            height: 100px;
+            padding: 10px;
+            font-size: 14px;
+            line-height: 20px;
+            text-align: center;
+          }
+
+          span{
+            margin-top: 20px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,321 @@
+@import url('./public/basecss.css');
+@import url('./public/nav.css');
+@import url('./public/footer.css');
+
+:root {
+  --base-container-width: 100%;
+}
+
+body {
+  background-color: #fff;
+}
+
+
+main {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+
+  .paining-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .img {
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .details {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 35px;
+
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        padding: 3.5rem 0 1rem 0;
+        color: rgb(69, 42, 7);
+
+        .title {
+          font-size: 1.5rem;
+          font-weight: 600;
+          margin: 1rem 0;
+        }
+
+        .info {
+          font-size: 1rem;
+          font-weight: 400;
+        }
+      }
+
+      .btn-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        padding: 1rem 0;
+        gap: 2rem;
+        color: rgb(69, 42, 7);
+
+        .btn {
+          width: 120px;
+          height: 40px;
+          background: none;
+          border: 1px solid rgb(69, 42, 7);
+          border-radius: 20px;
+          font-size: 1rem;
+          font-weight: 400;
+          margin: 1rem 0;
+          transition: all 0.5s ease-in-out;
+
+          /* &:first-child{
+            background-color: rgb(69, 42, 7);
+            color: white;
+          } */
+
+          &:hover {
+            background-color: rgb(69, 42, 7);
+            cursor: pointer;
+            color: white;
+            transition: all 0.5s ease-in-out;
+          }
+        }
+
+        .share-btn-group {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          height: auto;
+          padding: 1rem 0;
+          gap: 2rem;
+
+          .share-btn {
+            width: 40px;
+            height: 40px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              transition: all 0.3s ease-in-out;
+
+              &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+                transition: all 0.3s ease-in-out;
+              }
+            }
+          }
+        }
+
+
+
+      }
+    }
+
+  }
+
+  .introduce {
+    background-color: #f6f2ee;
+    padding: 2rem 0;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(69, 42, 7);
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      max-width: 80%;
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      letter-spacing: 0.2em;
+    }
+  }
+
+  .recommend {
+    width: 100%;
+    height: auto;
+    padding: 2rem 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(69, 42, 7);
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .list {
+      width: 80%;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .item {
+        width: 23%;
+        height: auto;
+        overflow: hidden;
+        position: relative;
+
+        img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          border-radius: 5px;
+          transition: all 0.5s ease-in-out;
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          img {
+            transform: scale(1.1);
+            transition: all 0.5s ease-in-out;
+          }
+        }
+
+        .content-box {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .detail {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            padding: 0 20px;
+            display: flex;
+            background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+            color: white;
+            justify-content: start;
+            align-items: center;
+            gap: 30px;
+            transition: height 0.5s;
+            border-radius: 0 0 5px 5px;
+
+            h2 {
+              font-size: 16px;
+              font-weight: normal;
+              transform: translateX(10px);
+              transition: transform 0.5s;
+            }
+
+            p {
+              font-size: 12px;
+              transform: translateY(0);
+              transition: transform 0.5s;
+            }
+          }
+
+          &:hover {
+            .detail {
+              height: 60px;
+
+              h2 {
+                transform: translateY(-8px);
+              }
+
+              p {
+                transform: translateY(-8px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .article {
+    width: 100%;
+    height: auto;
+    padding: 2rem 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(69, 42, 7);
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .list {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+
+      .item {
+        width: 100px;
+        height: auto;
+        overflow: hidden;
+        border: 1px solid rgb(69, 42, 7);
+        border-radius: 20px;
+        line-height: 35px;
+        text-align: center;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          cursor: pointer;
+          border: 1px solid rgb(255, 255, 255);
+          background-color: rgb(69, 42, 7);
+          color: rgb(255, 255, 255);
+          transition: all 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+}
