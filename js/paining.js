@@ -53,12 +53,10 @@ class pageActions {
         
         if (position === 0) {
           item.classList.add('active');
-        } else if (position === 1 || position === totalItems - 1) {
-          if (position === 1) {
-            item.classList.add('next');
-          } else {
-            item.classList.add('prev');
-          }
+        } else if (position === 1) {
+          item.classList.add('next');
+        } else if (position === totalItems - 1) {
+          item.classList.add('prev');
         }
       });
     };
