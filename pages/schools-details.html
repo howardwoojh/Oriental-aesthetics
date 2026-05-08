@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>流派详情</title>
-  <link rel="stylesheet" href="../css/details.css">
+  <link rel="stylesheet" href="../css/schools-details.css">
 </head>
 
 <body>
@@ -13,44 +13,57 @@
 
   </header>
   <main>
-    <section class="paining-container schools-container">
-      <div class="img">
-        <img src="" alt="">
-      </div>
-      <div class="details">
-        <div class="content">
-          <h1 class="title"></h1>
-          <p class="info"></p>
+    <div class="detail-container">
+      <div class="detail-card">
+        <div class="card-header">
+          <button class="back-btn" id="backBtn">&lt;</button>
+          <h1 class="school-name"></h1>
+          <div class="placeholder"></div>
         </div>
-        <div class="btn-group">
-          <button class="btn">了解更多</button>
+        
+        <div class="card-content">
+          <div class="gradient-bg"></div>
+          
+          <div class="center-icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="20" stroke="white" stroke-width="2" fill="none"/>
+              <path d="M30 20V40M20 30H40" stroke="white" stroke-width="2"/>
+            </svg>
+          </div>
+
+          <div class="content-text">
+            <h2 id="schoolTitle"></h2>
+            <p id="schoolIntro" class="intro-text"></p>
+          </div>
+
+          <div class="floating-image" id="floatingImage"></div>
+        </div>
+
+        <div class="card-footer">
+          <button class="view-btn">全屏观看</button>
+          <button class="expand-btn">弹</button>
         </div>
       </div>
-    </section>
+    </div>
+
     <section class="introduce" id="introduce">
       <h1>流派简介</h1>
-      <p class="detail">
-        
-      </p>
+      <p class="detail" id="detailContent"></p>
     </section>
+
     <section class="recommend">
       <h1>代表作品</h1>
-      <div class="list">
-        
-      </div>
+      <div class="list" id="recommendList"></div>
     </section>
+
     <section class="article">
       <h1>代表作家</h1>
-      <div class="list">
-
-      </div>
+      <div class="list" id="articleList"></div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-
-    </div>
+    <div class="container"></div>
   </footer>
 
   <script src="../js/public/template.js"></script>

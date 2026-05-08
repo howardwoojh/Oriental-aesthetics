@@ -1,76 +1,111 @@
 class pageActions {
   constructor() {
-    const common = new Common(); // 实例化公共方法
+    const common = new Common();
     common.setNavAndFooter();
     common.setNavActiveStyle();
-    common.goHome(); // 点击logo，跳转到首页
+    common.goHome();
     common.showNav();
     this.init();
-    common.addMoreClick();
   }
 
-  /**
-   * 初始化
-   */
   init() {
-    this.getData();
+    this.getSchoolId();
+    this.setupBackButton();
   }
 
   /**
-   * 根据url参数获取数据并渲染到页面
+   * 获取流派ID并加载数据
    */
-  getData() {
-    const common = new Common();
-    const params = common.getUrlParam('pid');
-    const resdata = data.data.find(item => item.id == params * 1);
-    document.querySelector('.schools-container .img img').src = resdata.images[0].url;
-    document.querySelector('.details .content .title').innerText = resdata.name;
-    document.querySelector('.details .content .info').innerText = resdata.intro;
-    document.querySelector('.introduce .detail').innerText = resdata.content;
-    //渲染作者的其它作品
-    const otherListContainer = document.querySelector('.recommend .list');
-    let list = resdata;
-    list.images.forEach((item, index) => {
-      otherListContainer.innerHTML += `
-          <div class="item">
-            <input type="hidden" value="${resdata.id}">
-            <img src="${item.url}" alt="">
-            <div class="content-box">
-              <div class="detail">
-                <h2>${item.name}</h2>
-                <p>${item.author + '·' + item.name}</p>
-              </div>
-            </div>
-        </div>
-        `;
-    })
-    this.addPainingClick();
-    //渲染流派代表作家
-    const authorsListContainer = document.querySelector('.article .list');
-    list.articles.forEach((item, index) => {
-      authorsListContainer.innerHTML += `
-          <div class="item">
-            ${item.name}
+  getSchoolId() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    
+    if (id) {
+      this.loadSchoolDetails(parseInt(id));
+    }
+  }
+
+  /**
+   * 加载流派详情
+   */
+  loadSchoolDetails(id) {
+    const school = data.data.find(s => s.id === id);
+    
+    if (school) {
+      // 设置标题
+      document.querySelector('.school-name').textContent = school.name;
+      document.getElementById('schoolTitle').textContent = school.name;
+      document.getElementById('schoolIntro').textContent = school.intro;
+      document.getElementById('detailContent').textContent = school.content;
+
+      // 加载浮动图片
+      if (school.images && school.images.length > 0) {
+        const img = document.createElement('img');
+        img.src = school.images[0].url;
+        document.getElementById('floatingImage').appendChild(img);
+      }
+
+      // 加载代表作品
+      this.loadRecommendations(school.images);
+
+      // 加载代表作家
+      this.loadArticles(school.articles);
+    }
+  }
+
+  /**
+   * 加载代表作品
+   */
+  loadRecommendations(images) {
+    const list = document.getElementById('recommendList');
+    list.innerHTML = '';
+
+    if (images) {
+      images.forEach(image => {
+        const item = document.createElement('div');
+        item.className = 'item';
+        item.innerHTML = `
+          <img src="${image.url}" alt="${image.name}">
+          <div class="info">
+            <div class="name">${image.name}</div>
+            <div class="author">${image.author}</div>
           </div>
-          `;
-    })
+        `;
+        list.appendChild(item);
+      });
+    }
   }
 
   /**
-   * 给推荐作品添加点击事件
+   * 加载代表作家
    */
-  addPainingClick() {
-    const works = document.querySelectorAll('.recommend .list .item');
-    works.forEach((work, index) => {
-      work.addEventListener('click', () => {
-        const pid = Math.floor(Math.random() * 18) + 1;
-        const url = `../pages/paining-details.html?pid=${pid}`;
-        window.location.href = url;
-      })
-    })
+  loadArticles(articles) {
+    const list = document.getElementById('articleList');
+    list.innerHTML = '';
+
+    if (articles) {
+      articles.forEach(article => {
+        const item = document.createElement('div');
+        item.className = 'item';
+        item.innerHTML = `
+          <div class="info">
+            <div class="name">${article.name}</div>
+            <div class="author">代表画家</div>
+          </div>
+        `;
+        list.appendChild(item);
+      });
+    }
   }
 
+  /**
+   * 设置返回按钮
+   */
+  setupBackButton() {
+    document.getElementById('backBtn').addEventListener('click', () => {
+      window.location.href = './schools.html?pagename=page3';
+    });
+  }
 }
 
-new pageActions();
-
+const action = new pageActions();
